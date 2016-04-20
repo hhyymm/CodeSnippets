@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/**
+     单个行情k线图,分时数据,合约代码 InstrumentID,查询条数：top 倒序最新在第一条,分时 1 5分钟 2 15分钟 3 30分钟 4 60分钟
+     */
+    class func requestForMarkInfoKTimes(InstrumentID:String,
+                                        top:String,
+                                        TimesType:String,
+                                        requestBack:RequestMangerCallBack)-&gt;Request{
+        let dict = [
+            "InstrumentID":InstrumentID,
+            "top":top,
+            "TimesType":TimesType
+        ]
+        return RequestManager.doNetAsyncServiceUrl(MarkWebServiceUrl,dict, MarkInfoKTimesMethodName,requestBack)
+    }
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>040FE7CF-2099-4F97-8DE5-694A37FAF294</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>My Code Snippet</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
