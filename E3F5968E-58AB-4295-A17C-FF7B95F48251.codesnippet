@@ -3,21 +3,44 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>sss</string>
+	<string>basevc--</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (nonatomic, strong) &lt;#type#&gt; *&lt;#name#&gt;;</string>
+	<string>class &lt;#BaseVC#&gt;: DefaultViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func performPreSetup() {
+        super.performPreSetup()
+
+
+    }
+
+    override func performSetup() {
+        super.performSetup()
+    }
+
+    func bindObservables() -&gt; () {
+        
+    }
+
+
+
+}
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>A83AE4CD-E79A-464F-B849-29BEB3CF4B01</string>
+	<string>E3F5968E-58AB-4295-A17C-FF7B95F48251</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>strong type property</string>
+	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>tq strong type property</string>
+	<string>BaseVC</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

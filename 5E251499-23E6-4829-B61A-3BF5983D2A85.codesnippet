@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>VM--</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>extension &lt;#class#&gt; {
+    class ViewModel : DefaultIGListViewModel {
+
+        private var disposeBag: DisposeBag = DisposeBag()
+
+        override init() {
+            super.init()
+
+            &lt;#rxList#&gt;
+                .rx.bookcaseList
+                .map { value in
+                    return [BookcaseNormalSection(books: value, section: 0)]
+            }
+            .subscribe(onNext: { (value) in
+                self._viewModels.onNext(value)
+            })
+                .disposed(by: self.disposeBag)
+
+
+            reload()
+        }
+
+        func reload() {
+            &lt;#rxList#&gt;
+                .rx.reloadBookcaseList()
+                .subscribe(
+                    onNext: { [unowned self] value in
+                        self._didReload.onNext(value.isEmpty)
+                    },
+                    onError: { [unowned self] in
+                        self._reloadError.onNext($0)
+                })
+                .disposed(by: disposeBag)
+        }
+
+        func loadMore() {
+            &lt;#rxList#&gt;
+                .rx.loadMoreBookcaseList()
+                .subscribe(
+                    onNext: { [unowned self] value in
+                        self._didLoadMore.onNext(value.isEmpty)
+                    },
+                    onError: { [unowned self] in
+                        self._loadMoreError.onNext($0)
+                })
+                .disposed(by: disposeBag)
+        }
+    }
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5E251499-23E6-4829-B61A-3BF5983D2A85</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>ViewModel</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

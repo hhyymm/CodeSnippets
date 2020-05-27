@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>rrrr</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    NSString *webServiceUrl = &lt;#webServiceURL#&gt;;
+    NSString *methodName    = &lt;#methodName#&gt;;
+    NSDictionary *dict = @{
+                           @"osType":DEF_Safe_String(&lt;#ss#&gt;),
+                           @"imei":&lt;#ss#&gt;
+                           };
+    
+    NSString *soapMsg = [SoapHelper dictToDefaultSoapMessage:dict methodName:methodName];
+    
+    NSMutableURLRequest * request = [[self class] commonRequestUrl:webServiceUrl
+                                                         nameSpace:defaultWebServiceNameSpace
+                                                        methodName:methodName
+                                                       soapMessage:soapMsg];
+    
+    [[self class] dataTaskWithRequest:request resultBlock:resultBlock];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>BAB171B6-17E7-44F3-BAA7-5949E3EED827</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>serverUrl</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

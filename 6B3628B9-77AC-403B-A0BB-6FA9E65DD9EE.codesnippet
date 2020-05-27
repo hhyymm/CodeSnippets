@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>import IGListKit
+import RxSwift
+import Kingfisher
+import AutoInch
+
+class &lt;#section#&gt;: DiffableReusableSection {
+
+    var identifier: String
+
+    var cellViewModels: [ReusableCellViewModel]
+
+    var inset: UIEdgeInsets = .init(top: 10, left: 15, bottom: 10, right: 15)
+
+    func diffIdentifier() -&gt; NSObjectProtocol {
+        return identifier as NSObjectProtocol
+    }
+
+    func isEqual(toDiffableObject object: ListDiffable?) -&gt; Bool {
+        return (object as? &lt;#basesection#&gt;)?.identifier == identifier
+    }
+
+    init(books: &lt;#object#&gt;, section: Int) {
+
+        identifier = "SearchHotSection_section\(section)"
+
+        cellViewModels = &lt;#init#&gt;
+    }
+
+    private static func createViewModel(&lt;#arg#&gt;) -&gt; &lt;#cellViewModel#&gt; {
+        let result = &lt;#cellViewModel#&gt;(arg)
+        // TODO:
+        return result
+    }
+}
+
+private class &lt;#cell#&gt;: &lt;#cell#&gt;, ReusableCell {
+
+    var viewModel: ReusableCellViewModel?
+
+    private var disposeBag: DisposeBag = DisposeBag()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    func setup(viewModel: ReusableCellViewModel) {
+
+        guard let _viewModel = viewModel as? &lt;#cellViweModel#&gt; else {return}
+
+        self.viewModel = _viewModel
+        
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+}
+
+
+class &lt;#cellViewModel&gt; : ReusableCellViewModel {
+
+    var cellClass: AnyClass = BookHotCell.self
+
+    var size: CGSize = CGSize(width: kScreenWidth, height: 70.auto())
+
+    var performWhenSelect: ((IndexPath)-&gt;Void)?
+
+    var model : BookInfo?
+
+    var index : Int = 0
+
+    init(book:BookInfo, index: Int) {
+        self.model = book
+        self.index = index
+    }
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>6B3628B9-77AC-403B-A0BB-6FA9E65DD9EE</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>BaseSectionController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
